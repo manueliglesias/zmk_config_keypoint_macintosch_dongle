@@ -52,6 +52,12 @@ config A320_START_IN_SCROLL_MODE
       If yes (y), the default state is scroll mode, and holding the toggle key switches to mouse mode.
       If no (n), the default state is mouse mode, and holding the toggle key switches to scroll mode.
 
+config A320_SCROLL_SCALE_PERCENT
+    int "Scroll step scale percentage (100 = 1.0x, 300 = 3.0x larger steps)"
+    default 300
+    help
+      Multiplier percentage for scroll step size. Higher values increase scroll distance per swipe.
+
 config A320_SCROLL_X_DIR
     int "Scroll X direction multiplier (1 for normal, -1 for inverted)"
     default 1
