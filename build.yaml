@@ -2,15 +2,21 @@
 include:
   - board: keypoint_dongle
     shield: st7789_display
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
   - board: keypoint_dongle_left
     shield: lpm_view;left_bbtrackpad_keypoint
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
   - board: keypoint_dongle_right
     shield: lpm_view;right_trackpoint_keypoint
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
 
 # reset firmware
   - board: keypoint_dongle
     shield: st7789_display;settings_reset
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=y
   - board: keypoint_dongle_left
     shield: lpm_view;left_bbtrackpad_keypoint;settings_reset
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
   - board: keypoint_dongle_right
     shield: lpm_view;right_trackpoint_keypoint;settings_reset
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
