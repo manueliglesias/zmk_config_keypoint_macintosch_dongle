@@ -45,14 +45,14 @@ layers:
   - /
   - RSHFT
   - LCTRL
-  - LGUI
   - LALT
+  - LGUI
   - MUTE
   - RAISE
-  - SPACE
-  - LOWER
   - LOWER
   - SPACE
+  - SPACE
+  - LOWER
   - RAISE
   - MUTE
   - '-'
@@ -85,7 +85,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - ''''
-  - ENTER
+  - {t: ▽, type: trans}
   - LSHFT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -100,17 +100,17 @@ layers:
   - {t: ▽, type: trans}
   - '['
   - ']'
-  - NUBS
-  - RSHFT
+  - \
+  - {t: ▽, type: trans}
   - LCTRL
+  - LALT
   - LGUI
-  - '&bootloader'
   - BT CLR
   - {t: ▽, type: trans}
-  - SPACE
   - {t: LOWER, type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - LOWER
-  - SPACE
   - {t: MOUSE, h: toggle}
   - OUT TOG
   - '&bootloader'
@@ -161,8 +161,8 @@ layers:
   - ''
   - ''
   - LCTRL
+  - LALT
   - LGUI
-  - ''
   - ''
   - {t: RAISE, type: held}
   - ''
@@ -219,12 +219,12 @@ layers:
   - /
   - RSHFT
   - LCTRL
-  - LGUI
   - LALT
+  - LGUI
   - ''
   - RAISE
   - SPACE
-  - '&mkp MB1'
+  - '&mkp LCLK'
   - '&mkp MB1'
   - '&tdRMCLK'
   - RAISE
