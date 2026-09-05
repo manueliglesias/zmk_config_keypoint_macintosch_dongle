@@ -119,61 +119,60 @@
     keymap {
         compatible = "zmk,keymap";
 
-         default_layer {
-            display-name = "QWERTY";    
-           bindings = <
+        default_layer {
+            display-name = "QWERTY";
+            bindings = <
                                                                                       &BOT
-&mt ESC TAB &kp Q  &kp W      &kp E      &kp R     &kp T                                                                 &kp Y       &kp U    &kp I      &kp O     &kp P     &kp BSPC
-&kp CAPS  &kp A    &kp S      &kp D      &kp F     &kp G     &mkp LCLK                    &mkp LCLK                      &kp H       &kp J    &kp K      &kp L     &kp SEMI  &kp ENTER
-&kp LSHFT &kp Z    &kp X      &kp C      &kp V     &kp B     &kp PG_DN  &kp PG_UP         &msc SCRL_DOWN  &msc SCRL_UP   &kp N       &kp M    &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-&kp LCTRL &kp LGUI &kp LALT   &kp C_MUTE &mo 2     &kp SPACE &mo 1                                        &mo 1          &kp SPACE   &mo 2    &kp C_MUTE &kp MINUS &kp EQUAL &kp GRAVE
-           >;
+&mt ESC TAB &kp Q &kp W &kp E &kp R &kp T                              &kp Y &kp U &kp I &kp O &kp P &kp BSPC
+&kp CAPS &kp A &kp S &kp D &kp F &kp G     &mkp LCLK                    &mkp LCLK                      &kp H &kp J &kp K &kp L &kp SEMI &kp ENTER
+&kp LSHFT &kp Z &kp X &kp C &kp V &kp B     &kp PG_DN  &kp PG_UP         &msc SCRL_DOWN  &msc SCRL_UP   &kp N &kp M &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+&kp LCTRL &kp LALT &kp LGUI &kp C_MUTE &mo 2     &mo 1 &kp SPACE                                        &kp SPACE &mo 1   &mo 2 &kp C_MUTE &kp MINUS &kp EQUAL &kp GRAVE
+            >;
            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp LEFT RIGHT>;
         };
-
 
         lower_layer {
             display-name = "LOWER";
             bindings = <
-                                                                                        &BOT
-&kp ESC   &kp N1    &kp N2     &kp N3       &kp N4   &kp N5                                                               &kp N6    &kp N7   &kp N8       &kp N9    &kp N0     &kp DEL
-&kp CAPS  &trans    &trans     &trans       &trans   &trans           &mkp RCLK                    &mkp RCLK              &trans    &trans   &trans       &trans    &kp SQT    &kp ENTER
-&kp LSHFT &trans    &trans     &trans       &trans   &trans           &trans     &trans            &bl BL_DEC  &bl BL_INC &trans    &trans   &kp LBKT     &kp RBKT  &kp NUBS   &kp RSHFT
-&kp LCTRL &kp LGUI  &BOT       &bt BT_CLR   &trans   &kp SPACE        &mo 1                                    &mo 1      &kp SPACE &to 3    &out OUT_TOG &BOT      &trans     &trans
+                                                                                      &BOT
+&kp ESC &kp N1 &kp N2 &kp N3 &kp N4 &kp N5                              &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp DEL
+&kp CAPS &trans &trans &trans &trans &trans     &mkp RCLK                    &mkp RCLK                      &trans &trans &trans &trans &kp SQT &trans
+&kp LSHFT &trans &trans &trans &trans &trans     &trans  &trans         &bl BL_DEC  &bl BL_INC   &trans &trans &kp LBKT &kp RBKT &kp BSLH &trans
+&kp LCTRL &kp LALT &kp LGUI &bt BT_CLR &trans     &mo 1 &trans                                        &trans &mo 1   &to 3 &out OUT_TOG &BOT &trans &trans
             >;
-             sensor-bindings = <&BLE_encoder &inc_dec_kp UP DOWN>;
+           sensor-bindings = <&BLE_encoder &inc_dec_kp UP DOWN>;
         };
 
         raise_layer {
             display-name = "RAISE";
             bindings = <
-                                                                                   &BOT
-&kp ESC       &kp F1    &kp UP     &kp F3    &kp F4   &kp F5                                                    &kp F6      &kp F7  &kp F8   &kp F9  &kp F10  &none
-&kp CAPS      &kp LEFT  &kp DOWN   &kp RIGHT &none    &none   &none                        &none                &kp F11     &kp F12 &none    &none  &none     &none
-&kp LSHFT     &none     &none      &none     &none    &none   &none   &none                &none  &none         &none       &none   &none    &none  &none     &none
-&kp LCTRL     &kp LGUI  &none      &none     &mo 2    &none   &none                               &none         &none       &mo 2   &none    &none  &none     &none 
+                                                                                      &BOT
+&kp ESC &kp F1 &kp UP &kp F3 &kp F4 &kp F5                              &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &none
+&kp CAPS &kp LEFT &kp DOWN &kp RIGHT &none &none     &none                    &none                      &kp F11 &kp F12 &none &none &none &none
+&kp LSHFT &none &none &none &none &none     &none  &none         &none  &none   &none &none &none &none &none &none
+&kp LCTRL &kp LALT &kp LGUI &none &mo 2     &none &none                                        &none &none   &mo 2 &none &none &none &none
             >;
         };
 
         MOUSE_layer {
             display-name = "MOUSE";
             bindings = <
-                                                                                   &BOT
-&kp TAB   &kp Q     &kp W          &kp E     &kp R     &kp T                                                         &kp Y       &M_kp MB3 U    &kp I      &kp O     &kp P     &kp BSPC
-&kp CAPS  &kp A     &kp S          &kp D     &kp F     &kp G      &mkp LCLK                         &mkp LCLK        &kp H       &M_kp MB1 J    &kp K      &kp L     &kp SEMI  &kp ENTER
-&kp LSHFT &kp Z     &kp X          &kp C     &kp V     &kp B      &msc SCRL_DOWN   &msc SCRL_UP     &none  &none     &kp N       &M_kp MB2 M    &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-&kp LCTRL &kp LGUI  &kp  LALT      &none     &mo 2     &kp SPACE  &mkp MB1                         &LMouse_sc 0 MB1  &tdRMCLK    &mo 2          &kp C_MUTE &kp MINUS &kp EQUAL &kp GRAVE
+                                                                                      &BOT
+&kp TAB &kp Q &kp W &kp E &kp R &kp T                              &kp Y &M_kp MB3 U &kp I &kp O &kp P &kp BSPC
+&kp CAPS &kp A &kp S &kp D &kp F &kp G     &mkp LCLK                    &mkp LCLK                      &kp H &M_kp MB1 J &kp K &kp L &kp SEMI &kp ENTER
+&kp LSHFT &kp Z &kp X &kp C &kp V &kp B     &msc SCRL_DOWN  &msc SCRL_UP         &none  &none   &kp N &M_kp MB2 M &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+&kp LCTRL &kp LALT &kp LGUI &none &mo 2     &kp SPACE &mkp LCLK                                        &LMouse_sc 0 MB1 &tdRMCLK   &mo 2 &kp C_MUTE &kp MINUS &kp EQUAL &kp GRAVE
             >;
         };
 
         RES_layer {
             display-name = "RESERVE";
             bindings = <
-                                                                             &BOT
-&none     &none     &none      &none    &none    &none                                                 &none   &none  &none   &none  &none  &none
-&none     &none     &none      &none    &none    &none   &none                        &none            &none   &none  &none   &none  &none  &none
-&none     &none     &none      &none    &none    &none   &none   &none                &none  &none     &none   &none  &none   &none  &none  &none
-&none     &none     &none      &none    &none    &none   &none                               &none     &none   &none  &none   &none  &none  &none 
+                                                                                      &BOT
+&none &none &none &none &none &none                              &none &none &none &none &none &none
+&none &none &none &none &none &none     &none                    &none                      &none &none &none &none &none &none
+&none &none &none &none &none &none     &none  &none         &none  &none   &none &none &none &none &none &none
+&none &none &none &none &none     &none &none                                        &none &none   &none &none &none &none &none
             >;
         };
 
