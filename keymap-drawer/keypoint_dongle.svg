@@ -335,22 +335,22 @@ path.combo {
 </a></g>
 <g transform="translate(309, 282) rotate(11.93)" class="key keypos-48">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<a href="#LOWER">
-<text x="0" y="0" class="key tap layer-activator">LOWER</text>
-</a></g>
+<text x="0" y="0" class="key tap">SPACE</text>
+</g>
 <g transform="translate(367, 309) rotate(23.87)" class="key keypos-49">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">SPACE</text>
-</g>
+<a href="#LOWER">
+<text x="0" y="0" class="key tap layer-activator">LOWER</text>
+</a></g>
 <g transform="translate(500, 301) rotate(-23.87)" class="key keypos-50">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">SPACE</text>
-</g>
-<g transform="translate(553, 268) rotate(-11.93)" class="key keypos-51">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <a href="#LOWER">
 <text x="0" y="0" class="key tap layer-activator">LOWER</text>
 </a></g>
+<g transform="translate(553, 268) rotate(-11.93)" class="key keypos-51">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">SPACE</text>
+</g>
 <g transform="translate(616, 259)" class="key keypos-52">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <a href="#RAISE">
@@ -579,24 +579,24 @@ path.combo {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
 <text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(309, 282) rotate(11.93)" class="key held keypos-48">
+<g transform="translate(309, 282) rotate(11.93)" class="key trans keypos-48">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
+</g>
+<g transform="translate(367, 309) rotate(23.87)" class="key held keypos-49">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key held"/>
 <a href="#LOWER">
 <text x="0" y="0" class="key held tap layer-activator">LOWER</text>
 </a></g>
-<g transform="translate(367, 309) rotate(23.87)" class="key trans keypos-49">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
-</g>
-<g transform="translate(500, 301) rotate(-23.87)" class="key trans keypos-50">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
-</g>
-<g transform="translate(553, 268) rotate(-11.93)" class="key keypos-51">
+<g transform="translate(500, 301) rotate(-23.87)" class="key keypos-50">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <a href="#LOWER">
 <text x="0" y="0" class="key tap layer-activator">LOWER</text>
 </a></g>
+<g transform="translate(553, 268) rotate(-11.93)" class="key trans keypos-51">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
+</g>
 <g transform="translate(616, 259)" class="key keypos-52">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <a href="#MOUSE">

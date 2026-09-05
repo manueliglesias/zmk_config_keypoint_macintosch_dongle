@@ -49,10 +49,10 @@ layers:
   - LGUI
   - MUTE
   - RAISE
-  - LOWER
-  - SPACE
   - SPACE
   - LOWER
+  - LOWER
+  - SPACE
   - RAISE
   - MUTE
   - '-'
@@ -107,10 +107,10 @@ layers:
   - LGUI
   - BT CLR
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: LOWER, type: held}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - LOWER
+  - {t: ▽, type: trans}
   - {t: MOUSE, h: toggle}
   - OUT TOG
   - '&bootloader'
