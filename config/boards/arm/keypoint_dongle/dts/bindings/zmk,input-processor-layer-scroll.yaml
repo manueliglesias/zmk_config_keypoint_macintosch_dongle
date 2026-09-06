@@ -1,0 +1,8 @@
+# Copyright (c) 2025 ZitaoTech / ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: Input processor to convert cursor movement into scroll wheel events for a specific layer
+
+compatible: "zmk,input-processor-layer-scroll"
+
+include: ip_two_param.yaml

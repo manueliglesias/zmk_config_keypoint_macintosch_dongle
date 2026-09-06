@@ -111,6 +111,11 @@
         <&ip_behaviors1>,
         <&ip_behaviors2>,
         <&ip_behaviors3>;
+
+    scroll {
+        layers = <1>;
+        input-processors = <&zip_layer_scroll 1 12>;
+    };
 };
 
 

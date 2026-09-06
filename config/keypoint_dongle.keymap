@@ -25,6 +25,11 @@
             #input-processor-cells = <2>;
         };
 
+        zip_layer_scroll: zip_layer_scroll {
+            compatible = "zmk,input-processor-layer-scroll";
+            #input-processor-cells = <2>;
+        };
+
         ip_behaviors0: ip_behaviors0 {
             compatible = "zmk,input-processor-behaviors";
             #input-processor-cells = <0>;
