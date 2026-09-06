@@ -168,7 +168,7 @@
 
             sensor-bindings =
                 <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+                <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         raise_layer {
@@ -183,7 +183,7 @@
 
             sensor-bindings =
                 <&BLE_encoder>,
-                <&BLE_encoder>;
+                <&BLE_encoder_inv>;
         };
 
         MOUSE_layer {
