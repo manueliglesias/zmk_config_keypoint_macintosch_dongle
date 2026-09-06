@@ -1,0 +1,19 @@
+/ {
+    behaviors {
+        /omit-if-no-ref/ msc_tick: mouse_scroll_tick {
+            compatible = "zmk,behavior-mouse-scroll-tick";
+            #binding-cells = <1>;
+        };
+
+        /omit-if-no-ref/ inc_dec_msc: inc_dec_msc {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&msc_tick>, <&msc_tick>;
+        };
+    };
+
+    msc_tick_input_listener: msc_tick_input_listener {
+        compatible = "zmk,input-listener";
+        device = <&msc_tick>;
+    };
+};

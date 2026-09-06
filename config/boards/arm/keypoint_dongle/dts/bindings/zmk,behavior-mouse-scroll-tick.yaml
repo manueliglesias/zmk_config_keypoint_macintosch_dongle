@@ -1,0 +1,8 @@
+# Copyright (c) 2025 ZitaoTech / ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: Mouse scroll tick behavior
+
+compatible: "zmk,behavior-mouse-scroll-tick"
+
+include: one_param.yaml
