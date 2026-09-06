@@ -79,16 +79,12 @@ static struct k_work_q tp_workq;
 
 #define SLOW_KEY_MULTIPLIER 0.5f
 
-static float scroll_residual_x = 0;
-static float scroll_residual_y = 0;
 /* ========= Watch Dog ========= */
 static uint32_t last_activity_time = 0;
 #define TRACKPOINT_WDT_TIMEOUT 200
 /* ========= 全局状态 ========= */
-static bool scroll_key_pressed = false;
 static bool arrow_key_pressed = false;
 static bool slow_key_pressed = false;
-static bool last_scroll_key_pressed = false; // ★ NEW
 static bool last_arrow_key_pressed = false;
 uint32_t last_packet_time = 0;
 
@@ -120,12 +116,6 @@ static int special_key_listener_cb(const zmk_event_t *eh) {
         LOG_INF("space position=49 %s", arrow_key_pressed ? "PRESSED" : "RELEASED");
     }
 
-    // Scroll key (Space)
-    if (ev->position == 49) {
-        scroll_key_pressed = ev->state;
-        LOG_INF("space position=49 %s", scroll_key_pressed ? "PRESSED" : "RELEASED");
-    }
-
     // ★ NEW: Slow
     if (ev->position == 22) {
         slow_key_pressed = ev->state;
@@ -139,12 +129,6 @@ static int special_key_listener_cb(const zmk_event_t *eh) {
     if (ev->position == 21) {
         arrow_key_pressed = ev->state;
         LOG_INF("space position=49 %s", arrow_key_pressed ? "PRESSED" : "RELEASED");
-    }
-
-    // Scroll key (Space)
-    if (ev->position == 50) {
-        scroll_key_pressed = ev->state;
-        LOG_INF("space position=49 %s", scroll_key_pressed ? "PRESSED" : "RELEASED");
     }
 
     // ★ NEW: Slow
@@ -170,8 +154,6 @@ struct trackpoint_data {
     struct gpio_callback motion_cb_data;
     struct k_work_delayable enable_irq_work; // ⭐ 新增
     uint32_t last_packet_time;
-    int16_t scroll_residue_x;
-    int16_t scroll_residue_y;
     int16_t arrow_residue_x;
     int16_t arrow_residue_y;
 };
@@ -303,11 +285,8 @@ static void trackpoint_work_cb(struct k_work *work) {
     if (now - last_activity_time > TRACKPOINT_WDT_TIMEOUT) {
         LOG_WRN("TrackPoint watchdog recovery");
 
-        data->scroll_residue_x = 0;
-        data->scroll_residue_y = 0;
         data->arrow_residue_x = 0;
         data->arrow_residue_y = 0;
-        last_scroll_key_pressed = scroll_key_pressed;
         return;
     }
 
@@ -320,16 +299,12 @@ static void trackpoint_work_cb(struct k_work *work) {
         LOG_WRN("TrackPoint I2C read failed (soft recover)");
 
         /* ⚠️ 不 break，不 sleep，不卡住 */
-        data->scroll_residue_x = 0;
-        data->scroll_residue_y = 0;
-
         return;
     }
 
     last_activity_time = now;
 
     /* ========= scroll mode 切换检测 ========= */
-    bool just_enter_scroll = scroll_key_pressed && !last_scroll_key_pressed;
     bool just_enter_arrow = arrow_key_pressed && !last_arrow_key_pressed;
     bool capslock = current_indicators & HID_INDICATORS_CAPS_LOCK;
 
@@ -363,33 +338,6 @@ static void trackpoint_work_cb(struct k_work *work) {
                            INPUT_BTN_2,  // 上
                            INPUT_BTN_3); // 下
         k_msleep(16);
-    } else if (scroll_key_pressed) {
-
-        if (just_enter_scroll) {
-            data->scroll_residue_x = dx * SCROLL_X_DIR;
-            data->scroll_residue_y = dy * SCROLL_Y_DIR;
-        }
-
-        float speed = sqrtf((float)(dx * dx + dy * dy));
-        float scale = (speed > 80)   ? 0.05f
-                      : (speed > 40) ? 0.04f
-                      : (speed > 20) ? 0.03f
-                      : (speed > 5)  ? 0.02f
-                                     : 0.015f;
-        scroll_residual_x += dx * scale;
-        scroll_residual_y += dy * scale;
-
-        int16_t out_x = (int16_t)scroll_residual_x;
-        int16_t out_y = (int16_t)scroll_residual_y;
-
-        scroll_residual_x -= out_x;
-        scroll_residual_y -= out_y;
-        input_report_rel(dev, INPUT_REL_HWHEEL, -out_x, false, K_FOREVER);
-        input_report_rel(dev, INPUT_REL_WHEEL, out_y, true, K_FOREVER);
-        k_msleep(25);
-        // process_scroll_axis(dev, dx, &data->scroll_residue_x, INPUT_REL_HWHEEL, SCROLL_X_DIR);
-        // process_scroll_axis(dev, dy, &data->scroll_residue_y, INPUT_REL_WHEEL, SCROLL_Y_DIR);
-
     } else {
 
         uint8_t tp_led_brt = custom_led_get_last_valid_brightness();
@@ -411,7 +359,6 @@ static void trackpoint_work_cb(struct k_work *work) {
         input_report_rel(dev, INPUT_REL_Y, -(int)fy, true, K_NO_WAIT);
     }
 
-    last_scroll_key_pressed = scroll_key_pressed;
     last_arrow_key_pressed = arrow_key_pressed;
     data->last_packet_time = now;
     k_msleep(5);
@@ -449,8 +396,6 @@ static int trackpoint_init(const struct device *dev) {
     k_mutex_init(&trackpoint_i2c_mutex);
 
     data->dev = dev;
-    data->scroll_residue_x = 0;
-    data->scroll_residue_y = 0;
     data->arrow_residue_x = 0;
     data->arrow_residue_y = 0;
     data->last_packet_time = k_uptime_get_32();
