@@ -1,63 +1,7 @@
 layout: {zmk_keyboard: keypoint_dongle}
 layers:
-  QWERTY:
-  - '&bootloader'
-  - {t: TAB, h: ESC}
-  - Q
-  - W
-  - E
-  - R
-  - T
-  - Y
-  - U
-  - I
-  - O
-  - P
-  - BSPC
-  - CAPS
-  - A
-  - S
-  - D
-  - F
-  - G
-  - '&mkp LCLK'
-  - '&mkp LCLK'
-  - H
-  - J
-  - K
-  - L
-  - ;
-  - ENTER
-  - LSHFT
-  - Z
-  - X
-  - C
-  - V
-  - B
-  - PG DN
-  - PG UP
-  - '&msc SCRL_DOWN'
-  - '&msc SCRL_UP'
-  - N
-  - M
-  - ','
-  - .
-  - /
-  - RSHFT
-  - LCTRL
-  - LALT
-  - LGUI
-  - MUTE
-  - RAISE
-  - SPACE
-  - LOWER
-  - LOWER
-  - SPACE
-  - RAISE
-  - MUTE
-  - '-'
-  - '='
-  - '`'
+  QWERTY: ['&bootloader', TAB, Q, W, E, R, T, Y, U, I, O, P, BSPC, CAPS, A, S, D, F, G, '&mkp LCLK', '&mkp LCLK', H, J, K, L, ;, ENTER, LSHFT, Z, X, C, V, B, PG DN,
+    PG UP, '&msc SCRL_DOWN', '&msc SCRL_UP', N, M, ',', ., /, RSHFT, LCTRL, LALT, LGUI, MUTE, RAISE, SPACE, LOWER, LOWER, SPACE, RAISE, MUTE, '-', '=', '`']
   LOWER:
   - '&bootloader'
   - ESC
@@ -105,14 +49,14 @@ layers:
   - LCTRL
   - LALT
   - LGUI
-  - BT CLR
+  - MUTE
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: LOWER, type: held}
   - LOWER
   - {t: ▽, type: trans}
   - {t: MOUSE, h: toggle}
-  - OUT TOG
+  - MUTE
   - '&bootloader'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -163,7 +107,7 @@ layers:
   - LCTRL
   - LALT
   - LGUI
-  - ''
+  - BT CLR
   - {t: RAISE, type: held}
   - ''
   - ''
@@ -224,7 +168,7 @@ layers:
   - ''
   - RAISE
   - SPACE
-  - '&mkp LCLK'
+  - '&mkp MB1'
   - '&mkp MB1'
   - '&tdRMCLK'
   - RAISE
